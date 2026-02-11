@@ -1,0 +1,1122 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    /* Palette de couleurs */
+    --primary-color: #d4a373; /* Doré (Croûte de pain) */
+    --secondary-color: #333333; /* Noir Anthracite (Premium) */
+    --light-bg: #fdfaf6; /* Blanc crème (Farine/Naturel) */
+    --accent-green: #606c38; /* Vert Olive (Bio/Éco-quartier) */
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --gray-light: #f4f4f4;
+    
+    /* Configuration */
+    --transition: all 0.3s ease;
+    --max-width: 1200px; /* Largeur max du contenu */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Défilement fluide */
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Police corps de texte */
+    color: var(--text-dark);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+    overflow-x: hidden; /* Évite le scroll horizontal sur mobile */
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Merriweather', serif; /* Police titres (Style Tradition) */
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================================
+   2. COMPOSANTS (BOUTONS)
+   ========================================= */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    border: 2px solid transparent;
+    text-align: center;
+}
+
+/* Bouton Principal (Doré) */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+/* Bouton Secondaire (Transparent/Blanc) */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--secondary-color);
+}
+
+/* Petit ajustement pour le bouton du menu */
+.btn-nav {
+    padding: 8px 20px;
+    font-size: 0.8rem;
+}
+
+/* =========================================
+   3. HEADER & NAVIGATION
+   ========================================= */
+header {
+    position: fixed; /* Reste en haut lors du scroll */
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
+    transition: var(--transition);
+    height: 70px; /* Hauteur fixe pour calculer les marges */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 5%;
+    height: 100%;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-family: 'Merriweather', serif;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    position: relative;
+}
+
+/* Soulignement animé au survol */
+.nav-links a:not(.btn)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-links a:not(.btn):hover::after {
+    width: 100%;
+}
+
+/* Menu Burger (Caché sur Desktop) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+/* Animation du burger en croix */
+.hamburger.active .bar:nth-child(2) { opacity: 0; }
+.hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* =========================================
+   4. HERO SECTION (ACCUEIL)
+   ========================================= */
+.hero {
+    height: 100vh; /* Prend tout l'écran */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Effet parallaxe simple */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+}
+
+.hero-content {
+    margin-top: 60px; /* Compense le menu fixe */
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--white);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 35px;
+    font-weight: 300;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* =========================================
+   5. SECTIONS GÉNÉRALES
+   ========================================= */
+section {
+    padding: 80px 5%;
+}
+
+.concept {
+    background-color: var(--white);
+    text-align: center;
+}
+
+.concept h2 {
+    font-size: 2.2rem;
+    margin-bottom: 60px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 50px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.feature-card {
+    padding: 20px;
+}
+
+.feature-icon {
+    font-size: 3.5rem;
+    color: var(--accent-green); /* Touche Eco/Bio */
+    margin-bottom: 25px;
+    display: block;
+}
+
+/* =========================================
+   6. SPLIT SECTIONS (MIDI / PAIN)
+   ========================================= */
+/* Container flexible */
+.split-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0; /* On gère le padding dans les boîtes */
+}
+
+/* Inverse l'ordre pour faire Texte | Image sur Desktop */
+.split-section.reverse-mobile {
+    flex-direction: row-reverse;
+}
+
+.split-box {
+    flex: 1;
+    min-width: 350px; /* Largeur min avant de passer en colonne */
+    padding: 80px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Images de fond */
+.split-img {
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+}
+
+.img-midi {
+    background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
+}
+
+.img-bread {
+    background-image: url('https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
+}
+
+/* Style sombre */
+.bg-dark {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.bg-dark h2 {
+    color: var(--primary-color);
+}
+
+/* =========================================
+   7. STYLE DES SOUS-PAGES (MIDI, CONTACT...)
+   ========================================= */
+/* En-tête des pages internes */
+.page-header {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 160px 5% 80px; /* Padding haut large pour dépasser le menu */
+    text-align: center;
+}
+
+.page-header h1 {
+    color: var(--primary-color);
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contenu des pages internes */
+.page-content {
+    padding: 100px 4%; /* Augmenté de 80px/5% à 100px/10% pour plus de recul */
+    max-width: 1500px; /* Légèrement élargi pour compenser les grosses marges */
+    margin: 0 auto;
+    min-height: 60vh;
+}
+
+.page-content h2 {
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* =========================================
+   8. FOOTER
+   ========================================= */
+footer {
+    background-color: #1a1a1a;
+    color: #999;
+    padding: 60px 5% 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: var(--max-width);
+    margin: 0 auto 50px;
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-col h4 {
+    color: var(--white);
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    padding-left: 5px; /* Petit effet de glissement */
+}
+
+.copyright {
+    border-top: 1px solid #333;
+    padding-top: 25px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   9. SECTION ANTI-GASPI (AMÉLIORÉE - CORRIGÉE)
+   ========================================= */
+
+.anti-gaspi-section {
+    padding: 80px 5%;
+    background-color: var(--white);
+}
+
+/* Le conteneur vert "Carte" */
+.gaspi-container {
+    background-color: var(--accent-green); /* Vert Olive */
+    color: var(--white);
+    border-radius: 20px;
+    padding: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    box-shadow: 0 15px 30px rgba(96, 108, 56, 0.2); /* Ombre portée verte */
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Petit détail visuel : cercle décoratif en fond */
+.gaspi-container::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+}
+
+/* Colonne Gauche (Texte) */
+.gaspi-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.gaspi-content h2 {
+    color: var(--white);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.gaspi-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+/* Petit badge "Eco-Quartier" */
+.tag-eco {
+    display: inline-block;
+    background-color: rgba(255,255,255,0.2);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Liste des avantages */
+.gaspi-benefits {
+    list-style: none;
+}
+
+.gaspi-benefits li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Colonne Droite (Formulaire) */
+.gaspi-form-wrapper {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group input {
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--accent-green);
+}
+
+.btn-dark {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-dark:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+}
+
+.form-note {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 15px;
+    text-align: center;
+}
+
+
+/* =========================================
+   10. RESPONSIVE (MOBILE & TABLETTE)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Navigation Mobile */
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%; /* Caché à gauche */
+        width: 100%;
+        height: auto;
+        padding-bottom: 30px;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        left: 0; /* Apparaît */
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 20px;
+        font-size: 1.1rem;
+        border-bottom: 1px solid var(--gray-light);
+    }
+    
+    .nav-links a:hover {
+        background-color: var(--gray-light);
+    }
+
+    .btn-nav {
+        margin: 20px auto;
+        display: inline-block !important;
+        width: 80%;
+    }
+
+    /* Hero Mobile */
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    /* Sections Split Mobile */
+    /* On annule le row-reverse pour avoir toujours Image puis Texte sur mobile */
+    .split-section.reverse-mobile {
+        flex-direction: column;
+    }
+    
+    .split-img {
+        min-height: 300px;
+    }
+
+    .split-box {
+        padding: 60px 20px;
+    }
+
+    /* Footer Mobile */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Responsive Anti-Gaspi Mobile */
+    .gaspi-container {
+        padding: 40px 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .gaspi-benefits li {
+        justify-content: center;
+    }
+    
+    .gaspi-form-wrapper {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   STYLE PAGE "NOTRE HISTOIRE"
+   ========================================= */
+
+/* Structure des sections (Texte + Image) */
+.story-section {
+    display: flex;
+    align-items: center;
+    gap: 80px; /* Augmenté de 60px à 100px pour écarter Texte et Image */
+    margin-bottom: 10px; /* Augmenté de 80px à 150px pour bien séparer les chapitres */
+}
+
+.story-section.reverse-layout {
+    flex-direction: row-reverse; /* Inverse l'ordre pour la 2ème section */
+}
+
+.story-text {
+    flex: 1;
+}
+
+.story-text h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.story-text p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    color: #444;
+}
+
+/* Images illustratives */
+.story-img {
+    flex: 1;
+    height: 400px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Image 1 : Ambiance chantier/fondateurs */
+.img-spark {
+    background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
+}
+
+/* Image 2 : Fournil/Cuisine */
+.img-concept {
+    background-image: url('https://images.unsplash.com/photo-1556910103-1c02745a30bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
+}
+
+/* Citation mise en avant */
+.quote-box {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 20px;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-top: 30px;
+    font-family: 'Merriweather', serif;
+}
+
+/* --- BANDEAU CHIFFRES CLÉS --- */
+.key-figures-bar {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.figure-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.figure-icon {
+    font-size: 2rem;
+}
+
+/* --- DÉTAILS CONCEPT (2 colonnes) --- */
+.concept-details {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.concept-col h4 {
+    color: var(--primary-color);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   SECTION ENGAGEMENTS (STYLE ECO-QUARTIER)
+   ========================================= */
+
+.engagements-wrapper {
+    background-color: var(--accent-green); /* Le Vert Olive */
+    color: var(--white); /* Texte général en blanc */
+    padding: 80px 5%;
+    border-radius: 20px;
+    position: relative; /* Nécessaire pour le cercle décoratif */
+    overflow: hidden;   /* Coupe ce qui dépasse */
+    box-shadow: 0 15px 30px rgba(96, 108, 56, 0.3); /* Ombre portée verte */
+    margin-bottom: 100px;
+}
+
+/* Le cercle décoratif (Effet visuel comme la newsletter) */
+.engagements-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.1); /* Blanc transparent */
+    border-radius: 50%;
+    pointer-events: none; /* Pour ne pas gêner le clic */
+}
+
+/* Le titre principal de la section */
+.engagements-wrapper h3 {
+    color: var(--white); /* Force le blanc sur le fond vert */
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.2rem;
+    position: relative;
+    z-index: 2; /* Passe au-dessus du décor */
+}
+
+/* La Grille */
+.engagements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Les Cartes (Blanches pour le contraste) */
+.engage-card {
+    background-color: var(--white);
+    color: var(--text-dark); /* Le texte redevient gris foncé pour la lecture */
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    height: 100%; /* Uniformise la hauteur */
+}
+
+/* Petit effet de mouvement au survol */
+.engage-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Titre à l'intérieur des cartes */
+.engage-card h4 {
+    color: var(--accent-green); /* On rappelle le vert du fond */
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Texte à l'intérieur des cartes */
+.engage-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* --- MOT DE LA FIN --- */
+.final-word {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.final-word h3 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.signature {
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+}
+
+
+
+/* RESPONSIVE HISTOIRE */
+@media (max-width: 768px) {
+    .story-section, .story-section.reverse-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .story-img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .key-figures-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .concept-details {
+        flex-direction: column;
+    }
+
+    .engagements-wrapper {
+        padding: 40px 20px;
+    }
+
+    
+}
+
+.figure-item {
+    display: flex;
+    align-items: center;
+}
+
+/* =========================================
+   PAGE CONTACT
+   ========================================= */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 100px;
+}
+
+/* --- COLONNE GAUCHE (INFOS) --- */
+.info-list {
+    margin: 30px 0;
+}
+
+.info-list li {
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+    padding-left: 10px;
+    border-left: 3px solid var(--primary-color); /* Petite ligne dorée décorative */
+}
+
+/* Case Blanche pour la carte (Placeholder) */
+.map-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #e0e0e0; /* Gris clair */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-weight: bold;
+    border: 2px dashed #ccc; /* Bordure pointillée pour montrer que c'est une zone d'attente */
+}
+
+/* --- COLONNE DROITE (FORMULAIRE) --- */
+.contact-form-wrapper {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+/* Style des champs (Input / Select / Textarea) */
+.main-form input, 
+.main-form select, 
+.main-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    background-color: #fcfcfc;
+    transition: var(--transition);
+}
+
+.main-form input:focus, 
+.main-form select:focus, 
+.main-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color); /* Devient doré au clic */
+    background-color: #fff;
+}
+
+/* --- SECTION B2B (ENTREPRISES) --- */
+.b2b-section {
+    display: flex;
+    align-items: center;
+    background-color: #f4f4f4; /* Fond gris très léger */
+    padding: 50px;
+    border-radius: 15px;
+    gap: 40px;
+}
+
+.b2b-text {
+    flex: 1;
+}
+
+.b2b-img-placeholder {
+    flex: 1;
+    height: 250px;
+    background-color: #ddd;
+    border-radius: 10px;
+    border: 2px dashed #bbb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-weight: bold;
+}
+
+/* RESPONSIVE CONTACT */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        gap: 40px;
+    }
+    
+    .b2b-section {
+        flex-direction: column-reverse; /* Image au-dessus ou en dessous selon préférence */
+        text-align: center;
+    }
+    
+    .b2b-img-placeholder {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   PAGE MENU / MIDI
+   ========================================= */
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    align-items: start; /* Aligne les cartes en haut */
+}
+
+/* Style de la Carte Menu */
+.menu-card {
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* MISE EN AVANT (Best Seller) */
+.menu-card.highlight-card {
+    border: 2px solid var(--primary-color);
+    background-color: #fffcf8; /* Fond très légèrement crème */
+    transform: scale(1.02); /* Un peu plus grosse par défaut */
+}
+
+.menu-card.highlight-card:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+.badge-best {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 5px 10px rgba(212, 163, 115, 0.4);
+}
+
+/* En-tête de la carte (Titre + Prix) */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.menu-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+}
+
+.menu-price {
+    font-family: 'Merriweather', serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Description Cible */
+.menu-target {
+    font-style: italic;
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* Liste des ingrédients */
+.menu-list {
+    list-style: none;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Pousse le bouton vers le bas */
+}
+
+.menu-list li {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.menu-list .detail {
+    font-size: 0.85rem;
+    color: #666;
+    display: block;
+    margin-top: 3px;
+}
+
+/* Bouton dans la carte */
+.btn-menu {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* Couleurs spécifiques boutons */
+.menu-card .btn-secondary {
+    color: var(--secondary-color);
+    border-color: #ddd;
+}
+.menu-card .btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border-color: var(--secondary-color);
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boulangerie Brazza - Artisan & Snacking</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <header id="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">Brazza<span>Bakery</span></a>
+            
+            <ul class="nav-links">
+                <li><a href="concept.html">Notre Histoire</a></li>
+                <li><a href="midi.html">Le Midi</a></li>
+                <li><a href="boulangerie.html">La Boulangerie</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="commande.html" class="btn btn-primary btn-nav">Click & Collect</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Le nouveau cœur battant de Brazza.</h1>
+            <p>Votre nouveau point de rencontre Pain, Café & Traiteur. Une sélection exigeante, du petit-déjeuner au dîner.</p>
+            <div class="hero-buttons">
+                <a href="midi.html" class="btn btn-primary">Voir la carte du Midi</a>
+                <a href="boulangerie.html" class="btn btn-secondary">Nos Pains Bio</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="concept">
+        <h2>Plus qu'une boulangerie, un lieu de vie</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img width="40" height="40" src="icones/farinee.png" alt="wheat"/>
+                <h3>Pains & Viennoiseries</h3>
+                <p>Cuit sur place en continu</p>
+            </div>
+            <div class="feature-card">
+                <img width="40" height="40" src="icones/pizz.png" alt="wheat"/>
+                <h3>Snacking Cuisiné</h3>
+                <p>Pizzas, Kebab et Salades préparées chaque matin.</p>
+            </div>
+            <div class="feature-card">
+                <img width="40" height="40" src="icones/feuill.png" alt="wheat"/>
+                <h3>Eco-Quartier</h3>
+                <p>Une démarche 100% anti-gaspi au cœur de Brazza.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="insta-feed" style="background-color: var(--light-bg); text-align: center;">
+    <h2>Suivez nos fournées sur Instagram</h2>
+    <p>@BrazzaBakery</p>
+    
+    <div class="insta-grid" style="display: flex; gap: 10px; margin-top: 30px; overflow-x: auto; justify-content: center;">
+        <div style="min-width: 250px; height: 250px; background: url('https://images.unsplash.com/photo-1509440159596-0249088772ff') center/cover;"></div>
+        <div style="min-width: 250px; height: 250px; background: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38') center/cover;"></div>
+        <div style="min-width: 250px; height: 250px; background: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a') center/cover;"></div>
+        <div style="min-width: 250px; height: 250px; background: url('https://images.unsplash.com/photo-1486887396153-fa416526c108') center/cover;"></div>
+    </div>
+    
+    <a href="#" class="btn btn-secondary" style="color: var(--text-dark); border-color: var(--text-dark); margin-top: 30px;">Nous suivre</a>
+</section>
+
+    <section class="split-section">
+        <div class="split-box img-midi"></div>
+        <div class="split-box bg-dark">
+            <h2>Votre pause déjeuner</h2>
+            <p>Fini le sandwich triangle industriel. Commandez votre déjeuner sain et chaud. Service express pour les travailleurs.</p>
+            
+            <a href="midi.html" class="btn btn-primary" style="margin-top: 30px;">Voir les Formules Midi</a>
+        </div>
+    </section>
+
+    <section class="split-section reverse-mobile">
+        <div class="split-box img-bread"></div>
+        <div class="split-box">
+            <h2>Le pain du soir & weekend</h2>
+            <p>Nos pains au levain se conservent parfaitement. Retrouvez le goût de l'authentique pour vos dîners et brunchs.</p>
+            <br>
+            <a href="boulangerie.html" class="btn btn-primary" style="background-color: var(--secondary-color); border-color: var(--secondary-color);">Découvrir nos Pains</a>
+        </div>
+    </section>
+
+    <section class="anti-gaspi-section">
+    <div class="gaspi-container">
+        <div class="gaspi-content">
+            <span class="tag-eco">🌿 Eco-Quartier Brazza</span>
+            <h2>Rejoignez le club <br>Anti-Gaspi & Gourmand</h2>
+            <p>Ne jetez plus, savourez ! Inscrivez-vous pour être alerté(e) en temps réel de nos paniers du soir.</p>
+            
+            <ul class="gaspi-benefits">
+                <li>💸 <strong>-50%</strong> sur les invendus après 19h</li>
+                <li>🌍 <strong>0%</strong> de gaspillage alimentaire</li>
+                <li>🥖 <strong>Priorité</strong> aux habitants du quartier</li>
+            </ul>
+        </div>
+
+        <div class="gaspi-form-wrapper">
+            <form class="gaspi-form">
+                <div class="input-group">
+                    <input type="email" placeholder="Votre email (ex: voisin@brazza.fr)" required>
+                    <button type="submit" class="btn btn-dark">Recevoir les alertes</button>
+                </div>
+                <p class="form-note">🔒 Promis, 0 spam. Juste du bon pain sauvé.</p>
+            </form>
+        </div>
+    </div>
+    </section>
+
+    <section class="location-section" style="background-color: var(--white); text-align: center;">
+    <h2>Retrouvez-nous au cœur de Brazza</h2>
+    <p style="margin-bottom: 30px;">Face aux Bassins à Flot, accessible via le Pont Chaban-Delmas.</p>
+    
+    <div class="map-container" style="width: 100%; height: 400px; background-color: #eee;">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2828.678825700874!2d-0.5566586842436424!3d44.84852997909852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd55263665555555%3A0x5555555555555555!2sQuai%20de%20Brazza%2C%2033100%20Bordeaux!5e0!3m2!1sfr!2sfr!4v1610000000000!5m2!1sfr!2sfr" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+</section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Brazza Bakery</h4>
+                <p>ZAC Brazza, Rive Droite<br>33000 Bordeaux</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Tél : 05 56 00 00 00</p>
+            </div>
+            <div class="footer-col">
+                <h4>Horaires</h4>
+                <p>Lun - Sam : 6h30 - 20h00</p>
+                <p>Dimanche : 7h00 - 13h00</p>
+            </div>
+            <div class="footer-col">
+                <h4>Accès Rapide</h4>
+                <ul class="footer-links">
+                    <li><a href="midi.html">La Carte du Midi</a></li>
+                    <li><a href="boulangerie.html">Nos Pains</a></li>
+                    <li><a href="contact.html">Nous trouver</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Boulangerie Brazza. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="Script.js"></script>
+
+</body>
+</html>
